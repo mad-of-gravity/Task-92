@@ -33,7 +33,6 @@ export default class Application extends EventEmitter {
       card.render();
 
       card.on(Card.events.ADD_TO_CART, ({type, price}) => {
-        console.log("Notifications...");
         const notification = new Notification();
         notification.render({price, type});
       });
