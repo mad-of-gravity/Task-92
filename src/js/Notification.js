@@ -24,7 +24,7 @@ export default class Notification {
 <div class="notification type-${type} ${classNames({
       "is-danger": type === Notification.types.HAWAIIAN,
     })}">
-  <button class="delete" onclick="document.querySelector('.notification').style.display = 'none'"></button>
+  <button class="delete" onclick="document.querySelector('.notifications').replaceChildren()"></button>
   🍕 <span class="type">${type}</span> (<span class="price">${formatCurrency(
       price
     )}</span>) has been added to your order.
