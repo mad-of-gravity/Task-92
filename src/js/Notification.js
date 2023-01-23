@@ -16,7 +16,7 @@ export default class Notification {
   }
 
   empty() {
-    document.querySelector(".notifications").replaceChildren();
+    document.querySelector(".notifications").replaceChildren(this.container);
   }
 
   render({ price, type }) {
@@ -33,6 +33,5 @@ export default class Notification {
 
     this.container.innerHTML = template;
     this.empty();
-    document.querySelector(".notifications").appendChild(this.container);
   }
 }
