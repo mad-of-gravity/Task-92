@@ -21,13 +21,17 @@ export default class Notification {
 
   render({ price, type }) {
     const pizzaType = `type-${type}`;
-    const isDanger = (type === Notification.types.HAWAIIAN) ? true : false;
-    const isDangerClass = classNames({ 'is-danger': isDanger });
+    const isDanger = type === Notification.types.HAWAIIAN ? true : false;
+    const isDangerClass = classNames({ "is-danger": isDanger });
 
     const template = `
-<div class="notification ${pizzaType} ${isDangerClass}">
+<div class="notification type-${type} ${classNames({
+      "is-danger": type === Notification.types.HAWAIIAN,
+    })}">
   <button class="delete" onclick="document.querySelector('.notification').style.display = 'none'"></button>
-  🍕 <span class="type">${type}</span> (<span class="price">${formatCurrency(price)}</span>) has been added to your order.
+  🍕 <span class="type">${type}</span> (<span class="price">${formatCurrency(
+      price
+    )}</span>) has been added to your order.
 </div>
     `;
 
